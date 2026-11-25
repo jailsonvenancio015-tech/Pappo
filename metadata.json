@@ -1,0 +1,10 @@
+{
+  "name": "Pappo",
+  "description": "Rede social, mensagens e distribuição híbrida P2P direto no navegador com privacidade, mídia adaptativa e recuperação segura.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

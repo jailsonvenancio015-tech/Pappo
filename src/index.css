@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f6f6fa;
+  --card: #ffffff;
+  --ink: #16161d;
+  --mut: #6c6c82;
+  --line: #e7e7f0;
+  --acc: #6d4aff;
+  --acc2: #ff4e88;
+  --grad: linear-gradient(135deg, var(--acc), var(--acc2));
+  --sh: 0 8px 28px rgba(18, 18, 28, 0.055);
+}
+
+:root.dark {
+  --bg: #0b0b10;
+  --card: #14141c;
+  --ink: #f3f3f8;
+  --mut: #9494aa;
+  --line: #23232f;
+  --sh: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+  overflow-wrap: anywhere;
+}
+
+h1, h2, h3, .font-display {
+  font-family: "Plus Jakarta Sans", "DM Sans", system-ui, sans-serif;
+}
+
+.font-mono-num {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Chat wallpapers */
+.wp-1 {
+  background-image: radial-gradient(var(--line) 1.3px, transparent 1.3px);
+  background-size: 18px 18px;
+}
+.wp-2 {
+  background: linear-gradient(160deg, color-mix(in srgb, var(--acc) 13%, var(--bg)), var(--bg));
+}
+.wp-3 {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--acc2) 12%, var(--bg)), color-mix(in srgb, var(--acc) 12%, var(--bg)));
+}
+.wp-4 {
+  background: repeating-linear-gradient(45deg, color-mix(in srgb, var(--acc) 4%, var(--bg)) 0 12px, var(--bg) 12px 24px);
+}
+
+@keyframes slam {
+  0% { transform: scale(1.6) translateY(-8px); opacity: 0; }
+  60% { transform: scale(0.95); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes loud {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.09) rotate(-1.5deg); }
+  55% { transform: scale(1.1) rotate(1.5deg); }
+}
+@keyframes gentle {
+  0% { transform: scale(0.9) translateY(8px); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes heartPop {
+  0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+  25% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, -95%) scale(1); opacity: 0; }
+}
+@keyframes fallFx {
+  to { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+.fx-slam { animation: slam 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fx-loud { animation: loud 0.55s ease both; }
+.fx-gentle { animation: gentle 0.65s ease both; }
+.heart-pop { animation: heartPop 0.8s ease-out forwards; }
+.fall-fx { animation: fallFx 2.4s linear forwards; }
+
+.rmo *,
+.rmo *::before,
+.rmo *::after {
+  transition: none !important;
+  animation: none !important;
+}
